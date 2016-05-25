@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Jordan Tepper
+  - __Scrum Master__: Aezed Raza
+  - __Development Team Members__: Dan Conger, Michael Daly
 
 ## Table of Contents
 
