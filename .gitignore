@@ -1,4 +1,7 @@
 ### node etc ###
+
+.DS_Store
+
 # Private Variables
 .env
 config/
