@@ -1,4 +1,7 @@
 ### node etc ###
+# Private Variables
+.env
+config/
 
 # Logs
 logs
