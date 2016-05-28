@@ -1,14 +1,13 @@
 import React from 'react'
 import {browserHistory, Router, Route, Redirect} from 'react-router'
-
-import makeLoginRoutes from './pages/login/routes'
+import { makeAuthRoutes } from './pages/auth/routes'
 
 export const makeRoutes = () => {
-  const login = makeLoginRoutes();
-
+  const auth = makeAuthRoutes();
+  
   return (
     <Route path=''>
-      {login}
+      {auth}
     </Route>
   )
 }
