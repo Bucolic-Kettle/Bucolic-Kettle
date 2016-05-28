@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom'
 import 'font-awesome/css/font-awesome.css'
 import './app.css'
 
-import App from 'containers/App/App'
+import Root from './containers/RootContainer'
 
 import {hashHistory} from 'react-router'
-import makeRoutes from './routes'
+import makeRoutes from './makeRoutes'
 import makeStore from './makeStore'
 
 const initialState = window.__INITIAL_STATE__;
@@ -17,6 +17,6 @@ const routes = makeRoutes()
 
 const mountNode = document.querySelector('#root');
 ReactDOM.render(
-  <App history={hashHistory}
+  <Root history={hashHistory}
         routes={routes} store={store} />,
 mountNode);

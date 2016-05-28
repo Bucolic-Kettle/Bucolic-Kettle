@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-class LoginContainer extends Component {
+class SignInContainer extends Component {
 	render() {
 		return (
 			<div>
@@ -11,4 +11,4 @@ class LoginContainer extends Component {
 	}
 }
 
-export default connect()(LoginContainer);
+export default connect()(SignInContainer);

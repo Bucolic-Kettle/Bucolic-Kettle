@@ -102,6 +102,8 @@ config.resolve.alias = {
   'css': join(src, 'styles'),
   'containers': join(src, 'containers'),
   'components': join(src, 'components'),
+  'layouts': join(src, 'layouts'),
+  'pages': join(src, 'pages'),
   'utils': join(src, 'utils'),
 
   'styles': join(src, 'styles')
