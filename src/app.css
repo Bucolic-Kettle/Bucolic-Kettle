@@ -1,5 +1,15 @@
 @import url("styles/colors.css");
 
+:global {
+  html, body, #root {
+    min-height: 100vh;
+  }
+
+  html, body {
+    background-color: var(--light-gray);
+  }
+};
+
 *,
 *:after,
 *:before {

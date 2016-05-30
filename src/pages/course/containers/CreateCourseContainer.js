@@ -1,4 +1,4 @@
-import { reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import { CreateCourseForm } from '../components';
 
 const fields = [
@@ -8,7 +8,4 @@ const fields = [
   'course.questions[].options[]'
 ];
 
-export default reduxForm({
-  fields,
-  name: 'createCourse'
-})(CreateCourseForm);
+export default connect()(CreateCourseForm);
