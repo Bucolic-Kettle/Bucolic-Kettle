@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Header from 'components/Header/Header';
 import styles from './styles.module.css';
 
-function Landing({ children }) {
+function LandingLayout({ children }) {
   return (
     <div>
       <Header />
@@ -13,8 +13,8 @@ function Landing({ children }) {
   );
 }
 
-Landing.propTypes = {
+LandingLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export default Landing;
+export default LandingLayout;

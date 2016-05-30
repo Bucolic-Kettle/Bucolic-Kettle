@@ -26,4 +26,4 @@ describe('<Header />', () => {
         .to.equal('Fullstack.io')
   });
 
-})
+});
