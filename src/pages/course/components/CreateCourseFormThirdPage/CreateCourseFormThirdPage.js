@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-export const fields = [ 'course.videoUrl', 'course.questions[]' ];
+
+export const fields = [ 'course.videoUrl', 'course.questions[].options[]', 'course.questions[].questionText' ];
 
 export class CreateCourseFormThirdPage extends Component {
   render() {
@@ -31,4 +32,4 @@ export default reduxForm({
   form: 'createCourse',
   fields,
   destroyOnUnmount: false,
-})(CreateCourseFormThirdPage)
+})(CreateCourseFormThirdPage);
