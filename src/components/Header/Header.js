@@ -8,7 +8,7 @@ export class Header extends React.Component {
     return (
       <div className={styles.topbar}>
         <section>
-          Fullstack.io
+          Fish Academy
         </section>
       </div>
     )

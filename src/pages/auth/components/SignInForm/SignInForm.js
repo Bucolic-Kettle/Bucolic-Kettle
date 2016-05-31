@@ -1,12 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 
 
-export default class LoginForm extends Component {
+class SignInForm extends Component {
 	render() {
 		return (
 			<div>
-				Hello
+				Hello man
 			</div>
 		)
 	}
 }
+
+
+export default SignInForm

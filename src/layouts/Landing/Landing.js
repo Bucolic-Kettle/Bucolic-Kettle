@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 
 function LandingLayout({ children }) {
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
       <div className={styles.content}>
         {children}
