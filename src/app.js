@@ -6,7 +6,7 @@ import './app.css';
 
 import Root from './containers/RootContainer';
 
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import makeRoutes from './makeRoutes';
 import makeStore from './makeStore';
 
@@ -17,5 +17,5 @@ const routes = makeRoutes();
 
 const mountNode = document.querySelector('#root');
 ReactDOM.render(
-  <Root history={hashHistory} routes={routes} store={store} />,
+  <Root history={browserHistory} routes={routes} store={store} />,
 mountNode);
