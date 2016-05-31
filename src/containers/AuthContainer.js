@@ -21,7 +21,8 @@ export default (Component) => {
       const { dispatch } = this.props;
 
       if (!this.props.user) {
-        dispatch(push('/signin'));
+        dispatch(push('/'));
+        // dispatch(push('/signin'));
       }
     }
 

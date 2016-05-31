@@ -1,0 +1,34 @@
+.form {
+  background-color: white;
+  border: 1px solid #ccc;
+  min-height: 12rem;
+  padding: 2rem;
+}
+
+.full-width-content {
+  margin-left: -2rem;
+  margin-right: -2rem;
+}
+
+.content-no-top-padding {
+  margin-top: -2rem;
+}
+
+
+.sub-header {
+  composes: full-width-content;
+  line-height: 1.2em;
+  padding: 1em 0;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.header {
+  composes: sub-header content-no-top-padding;
+  border-top: 0;
+}
