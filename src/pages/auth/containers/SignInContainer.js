@@ -25,6 +25,19 @@ class SignInContainer extends Component {
 
   }
 
+  handleGuest() {
+
+    const username = this.refs.username.value.trim();
+    const password = this.refs.password.value.trim();
+
+    this.props.handleGuest();
+
+    this.refs.username.value = '';
+    this.refs.password.value= '';
+
+  }
+
+
 	render() {
 		return (
 			<div className={styles.form}>
@@ -40,9 +53,11 @@ class SignInContainer extends Component {
 
 
         <button onClick={ () => {this.handleSignIn()} }> Sign In </button>
-        <button> Guest </button>
+        <button onClick={ () => {this.handleGuest()} }> Guest </button>
 
-        <Link to='/signup'> Go to Sign Up </Link> 
+        <Link to='/signup'> Go to Sign Up </Link> <br/>
+
+        <Link to='/course/create'> Go to course </Link> 
 
       </div>
 
