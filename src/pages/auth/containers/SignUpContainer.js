@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import * as authActions from '../ducks/auth.js';
 import { Link } from 'react-router';
 
-class SignInContainer extends Component {
+class SignUpContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -13,22 +13,23 @@ class SignInContainer extends Component {
     // console.log("PROPS ONE: ", this.props.handleSignIn.bind(null, 7)())
   };
 
-  handleSignIn() {
+  handleSignUp() {
 
     const username = this.refs.username.value.trim();
     const password = this.refs.password.value.trim();
 
-    this.props.handleUser('login', username, password);
+    this.props.handleUser('signup', username, password);
 
     this.refs.username.value = '';
     this.refs.password.value= '';
 
   }
 
-	render() {
-		return (
-			<div className={styles.form}>
-				<h1>Welcome to Fish Academy &gt;&lt;&gt;</h1>
+  render() {
+    return (
+
+      <div className={styles.form}>
+        <h1>Create an Account ! &gt;&lt;&gt;</h1>
 
 
         <label>Username:</label>
@@ -39,16 +40,15 @@ class SignInContainer extends Component {
 
 
 
-        <button onClick={ () => {this.handleSignIn()} }> Sign In </button>
+        <button onClick={ () => {this.handleSignUp()} }> Sign Up </button>
         <button> Guest </button>
 
-        <Link to='/signup'> Go to Sign Up </Link> 
+        <Link to='/'> Go to Sign In </Link> 
 
       </div>
 
-
-		)
-	}
+    )
+  }
 }
 
 function mapStateToProps(state) {
@@ -65,7 +65,7 @@ function mapStateToProps(state) {
 //   return bindActionCreators(aa, dispatch);
 // }
 
-export default connect(mapStateToProps, authActions)(SignInContainer);
+export default connect(mapStateToProps, authActions)(SignUpContainer);
 
 
 // this.props.handleSignIn.bind(null, 7)}
