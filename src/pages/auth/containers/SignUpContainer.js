@@ -41,7 +41,6 @@ class SignUpContainer extends Component {
 
 
         <button onClick={ () => {this.handleSignUp()} }> Sign Up </button>
-        <button> Guest </button>
 
         <Link to='/'> Go to Sign In </Link> 
 

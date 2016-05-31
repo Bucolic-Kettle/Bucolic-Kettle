@@ -1,17 +1,25 @@
 import axios from 'axios'
 
 const defaultState = {
-  auth: false
+  auth: false,
+  username: null
 };
 
 export default function reducer(state = defaultState, action) {
 
   switch (action.type) {
-    case 'LOGGING':
-      console.log("PAYLOAD", action.data)
-      console.log('logging in');
-      console.log("STATE: ", state)
-      return {...state, auth: action.data}
+    case 'LOG_IN':
+      if(action.data) {
+
+        return {...state, ...action.data}
+        
+      } else {
+        return state;
+      }
+
+    case 'GUEST':
+      return {...state, ...action.data}
+
 
 
     default: return state;
@@ -37,7 +45,18 @@ export function handleUser(endpoint, username, password) {
 
   return (dispatch) => {
     axios.post(`http://localhost:8000/${endpoint}`, {}, config).then(({data}) => {
-      dispatch({type:'LOGGING', data})
+      console.log(data)
+      dispatch({type:'LOG_IN', data})
+    });
+  }
+
+}
+
+export function handleGuest() {
+
+  return (dispatch) => {
+    axios.get('http://localhost:8000/guest').then(({data}) => {
+      dispatch({type:'GUEST', data})
     });
   }
 

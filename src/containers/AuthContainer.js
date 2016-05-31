@@ -19,8 +19,8 @@ export default (Component) => {
 
     _checkAndRedirect() {
       const { dispatch } = this.props;
-
-      if (!this.props.user) {
+console.log(this.props.state.auth.auth)
+      if (!this.props.state.auth.auth) {
         dispatch(push('/'));
         // dispatch(push('/signin'));
       }
@@ -29,7 +29,7 @@ export default (Component) => {
     render() {
       return (
         <div className="authenticated">
-          { this.props.user ? <Component {...this.props} /> : null }
+          { this.props.state.auth.auth ? <Component {...this.props} /> : null }
         </div>
       );
     }
