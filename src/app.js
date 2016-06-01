@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'font-awesome/css/font-awesome.css';
+// import 'font-awesome/css/font-awesome.css';
+import './styles/app.scss';
 import './app.css';
 
 import Root from './containers/RootContainer';
