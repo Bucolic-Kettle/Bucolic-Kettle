@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { push } from 'react-router-redux'
+//http://stackoverflow.com/questions/32612418/transition-to-another-route-on-successful-async-redux-action
 
 const defaultState = {
   auth: false,
@@ -34,19 +36,31 @@ export function handleUser(endpoint, username, password) {
 // https://github.com/mzabriskie/axios/issues/113
 // suggest this work around
   var config = {
+
+    url: `http://localhost:8000/${endpoint}`,
+
+    method: 'post',
+
     headers: {
          'Content-Type': 'application/x-www-form-urlencoded'
     },
-    params: {
+    data: {
          username,
          password
-    }
+    },
+    withCredentials: true
+
   };
 
   return (dispatch) => {
-    axios.post(`http://localhost:8000/${endpoint}`, {}, config).then(({data}) => {
+    axios(config).then(({data}) => {
       console.log(data)
-      dispatch({type:'LOG_IN', data})
+      return dispatch({type:'LOG_IN', data})
+    })
+    .then((action) => {
+        if (action.type === 'LOG_IN') {
+            dispatch(push('/course/create'));
+        }
     });
   }
 
@@ -57,6 +71,16 @@ export function handleGuest() {
   return (dispatch) => {
     axios.get('http://localhost:8000/guest').then(({data}) => {
       dispatch({type:'GUEST', data})
+    });
+  }
+
+}
+
+export function handleTest() {
+
+  return (dispatch) => {
+    axios.get('http://localhost:8000/test', {withCredentials: true}).then(({data}) => {
+      dispatch({type:'TEST', data})
     });
   }
 
