@@ -88,6 +88,13 @@ config.module.loaders.push({
 })
 // CSS modules
 
+// SASS
+// config.module.loaders.push({
+//   test: /\.scss$/,
+//   include: path.join(src, 'styles'),
+//   loader: 'style!css!sass?sourceMap'
+// })
+
 // postcss
 config.postcss = [].concat([
   require('precss')({}),
@@ -133,5 +140,7 @@ if (isTest) {
   })
 }
 // End Testing
+
+console.log(config.module.loaders);
 
 module.exports = config;
