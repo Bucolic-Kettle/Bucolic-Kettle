@@ -5,6 +5,7 @@ import styles from './styles.module.css';
 import { Link } from 'react-router';
 import Sidebar from '../components/Sidebar.js';
 import VideoPlayer from '../components/VideoPlayer.js';
+import Description from '../components/Description.js';
 
 
 class TakeCourseContainer extends Component {
@@ -15,6 +16,17 @@ class TakeCourseContainer extends Component {
 
 
   render() {
+
+    let content;
+
+    if (this.props.display === 'Quiz') {
+      content = <Quiz />
+    } else if(this.props.display === 'VideoPlayer') {
+      content = <VideoPlayer />
+    } else {
+      content = <Description />
+    }
+
     return (
 
       <div className="container-fluid">
@@ -28,8 +40,8 @@ class TakeCourseContainer extends Component {
 
             <div className="col-sm-10">
             
-              {this.props.username}
-              <VideoPlayer />
+              {content}
+              
 
             </div>
         </div>
@@ -41,7 +53,11 @@ class TakeCourseContainer extends Component {
 function mapStateToProps(state) {
 
   return {
-    username: state.auth.username
+    display: state.takeCourse.display,
+    courseName: state.takeCourse.courseName,
+    courseDescription: state.takeCourse.courseDescription,
+    courseUrl: state.takeCourse.courseUrl,
+    courseQuestions: state.takeCourse.courseQuestions
   }
 
 }

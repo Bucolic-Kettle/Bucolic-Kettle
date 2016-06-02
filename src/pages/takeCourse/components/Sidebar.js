@@ -3,13 +3,12 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import styles from './styles.module.css';
 import { Link } from 'react-router';
-
+import * as courseActions from '../ducks/takeCourse.js';
 
 class Sidebar extends Component {
 
   constructor(props) {
     super(props);
-    console.log(props)
   };
 
 
@@ -21,19 +20,19 @@ class Sidebar extends Component {
             <ul className={styles['sidebar-nav']}>
               <li>
                 <a href="#" onClick={ 
-                  (e) => {event.preventDefault();} }> 
+                  (e) => {e.preventDefault(); this.props.handleDescription()} }> 
                   Description 
                 </a>
               </li>
               <li>
                 <a href="#" onClick={ 
-                  (e) => {event.preventDefault();} }> 
+                  (e) => {e.preventDefault(); this.props.handleVideo();} }> 
                     Video
                 </a>
               </li>
               <li>
                 <a href="#" onClick={ 
-                  (e) => {event.preventDefault();} }> 
+                  (e) => {e.preventDefault();} }> 
                   Quiz
                 </a>
               </li>
@@ -58,4 +57,4 @@ function mapStateToProps(state) {
 //   return bindActionCreators(aa, dispatch);
 // }
 
-export default connect(mapStateToProps)(Sidebar);
+export default connect(mapStateToProps, courseActions)(Sidebar);
