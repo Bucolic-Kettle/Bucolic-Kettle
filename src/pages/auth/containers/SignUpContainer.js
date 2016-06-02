@@ -28,21 +28,28 @@ class SignUpContainer extends Component {
   render() {
     return (
 
-      <div className={styles.form}>
-        <h1>Create an Account ! &gt;&lt;&gt;</h1>
+      <div className="body">
 
+        <div className="container text-center">
 
-        <label>Username:</label>
-        <input ref="username" type="text" name="username"/>
+          
+          <h2 className="form-signin-heading">Create an Account</h2>
+          <input type="text" ref="username" name="username" className="form-control" placeholder="Username" required autofocus />
+          <label for="inputPassword" className="sr-only">Password</label>
+          <input type="password" ref="password" name="password" className="form-control" placeholder="Password" required />
+          {/*<div className="checkbox">
+            <label>
+              <input type="checkbox" value="remember-me" /> Remember me
+            </label>
+          </div>*/}
+          <button className="btn btn-lg btn-primary btn-block" onClick={ () => {this.handleSignUp()} }>Sign up</button>
+            
+          <br/>
 
-        <label>Password:</label>
-        <input ref="password" type="password" name="password"/>
+          <span> Have an account? <Link to='/'> Go to Sign In </Link> </span>
 
+        </div>
 
-
-        <button onClick={ () => {this.handleSignUp()} }> Sign Up </button>
-
-        <Link to='/'> Go to Sign In </Link> 
 
       </div>
 

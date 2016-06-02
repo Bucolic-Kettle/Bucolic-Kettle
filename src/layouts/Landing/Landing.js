@@ -4,9 +4,12 @@ import styles from './styles.module.css';
 
 function LandingLayout({ children }) {
   return (
-    <div className={styles.container}>
-      <Header />
-      <div className={styles.content}>
+    <div className="container-fluid">
+      {/*<Header />*/}
+      <div className="jumbotron"> 
+        <h1>Welcome to Fish Academy &gt;&lt;&gt; </h1>
+      </div>
+      <div className="row-fluid">
         {children}
       </div>
     </div>
