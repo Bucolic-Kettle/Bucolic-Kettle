@@ -60,7 +60,7 @@ class SignInContainer extends Component {
           </div>*/}
           <button className="btn btn-lg btn-primary btn-block" onClick={ () => {this.handleSignIn()} }>Sign in</button>
          
-          <span> Test out the site? <a href="#" onClick={ (e) => {event.preventDefault(); this.handleGuest()} }> Guest Login </a> </span>
+          <span> Test out the site? <a href="#" onClick={ (e) => {e.preventDefault(); this.handleGuest()} }> Guest Login </a> </span>
           
           <br/>  
 
