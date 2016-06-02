@@ -11,28 +11,30 @@ class Sidebar extends Component {
     super(props);
   };
 
-
   render() {
+
+    let active = this.props.display;
+
     return (
 
       <div >
         <div >
             <ul className={styles['sidebar-nav']}>
               <li>
-                <a href="#" onClick={ 
+                <a className={active === 'Description' ? styles.active : ''} href="#" onClick={ 
                   (e) => {e.preventDefault(); this.props.handleDescription()} }> 
                   Description 
                 </a>
               </li>
               <li>
-                <a href="#" onClick={ 
+                <a className={active === 'VideoPlayer' ? styles.active : ''} href="#" onClick={ 
                   (e) => {e.preventDefault(); this.props.handleVideo();} }> 
                     Video
                 </a>
               </li>
               <li>
-                <a href="#" onClick={ 
-                  (e) => {e.preventDefault();} }> 
+                <a className={active === 'Quiz' ? styles.active : ''} href="#" onClick={ 
+                  (e) => {e.preventDefault(); this.props.handleQuiz();} }> 
                   Quiz
                 </a>
               </li>
@@ -46,7 +48,7 @@ class Sidebar extends Component {
 function mapStateToProps(state) {
 
   return {
-    username: state.auth.username
+    display: state.takeCourse.display
   }
 
 }

@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 import Sidebar from '../components/Sidebar.js';
 import VideoPlayer from '../components/VideoPlayer.js';
 import Description from '../components/Description.js';
+import Quiz from '../components/Quiz.js';
 
 
 class TakeCourseContainer extends Component {
