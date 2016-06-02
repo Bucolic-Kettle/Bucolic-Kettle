@@ -1,0 +1,13 @@
+@import url("../../styles/base.css");
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  margin-top: var(--topbar-height);
+  padding: 1rem;
+  width: 100%;
+  max-width: 80rem;
+}

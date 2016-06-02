@@ -7,7 +7,7 @@ function LandingLayout({ children }) {
     <div className="container-fluid">
       {/*<Header />*/}
       <div className="jumbotron"> 
-        <h1>Welcome to Fish Academy &gt;&lt;&gt; </h1>
+        <h1>COURSE NAME ! &gt;&lt;&gt;</h1>
       </div>
       <div className="row-fluid">
         {children}
