@@ -3,37 +3,38 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import styles from './styles.module.css';
 import { Link } from 'react-router';
-
+import * as courseActions from '../ducks/takeCourse.js';
 
 class Sidebar extends Component {
 
   constructor(props) {
     super(props);
-    console.log(props)
   };
 
-
   render() {
+
+    let active = this.props.display;
+
     return (
 
       <div >
         <div >
             <ul className={styles['sidebar-nav']}>
               <li>
-                <a href="#" onClick={ 
-                  (e) => {event.preventDefault();} }> 
+                <a className={active === 'Description' ? styles.active : ''} href="#" onClick={ 
+                  (e) => {e.preventDefault(); this.props.handleDescription()} }> 
                   Description 
                 </a>
               </li>
               <li>
-                <a href="#" onClick={ 
-                  (e) => {event.preventDefault();} }> 
+                <a className={active === 'VideoPlayer' ? styles.active : ''} href="#" onClick={ 
+                  (e) => {e.preventDefault(); this.props.handleVideo();} }> 
                     Video
                 </a>
               </li>
               <li>
-                <a href="#" onClick={ 
-                  (e) => {event.preventDefault();} }> 
+                <a className={active === 'Quiz' ? styles.active : ''} href="#" onClick={ 
+                  (e) => {e.preventDefault(); this.props.handleQuiz();} }> 
                   Quiz
                 </a>
               </li>
@@ -47,7 +48,7 @@ class Sidebar extends Component {
 function mapStateToProps(state) {
 
   return {
-    username: state.auth.username
+    display: state.takeCourse.display
   }
 
 }
@@ -58,4 +59,4 @@ function mapStateToProps(state) {
 //   return bindActionCreators(aa, dispatch);
 // }
 
-export default connect(mapStateToProps)(Sidebar);
+export default connect(mapStateToProps, courseActions)(Sidebar);
