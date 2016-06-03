@@ -8,7 +8,7 @@ import TakeCourseContainer from './containers/TakeCourseContainer';
 export const makeTakeCourseRoutes = () => {
   return (
 
-    <Route path="/take" component={TakeCourseLayout}>
+    <Route path="/take" component={Auth(TakeCourseLayout)}>
     {/*<Route path="/course" component={Auth(CourseLayout)}>*/}
 
       <Route path=":courseId" component={TakeCourseContainer} />

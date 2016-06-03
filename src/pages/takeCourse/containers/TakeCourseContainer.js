@@ -9,6 +9,10 @@ import Description from '../components/Description.js';
 import Quiz from '../components/Quiz.js';
 
 
+///for testing before api integration
+import sample from '../../../../sample.js'
+///
+
 class TakeCourseContainer extends Component {
 
   constructor(props) {
