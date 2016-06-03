@@ -40,8 +40,8 @@
   background-color: #eee;
 }
 
-.form-signin {
-  max-width: 330px;
+.signin {
+  max-width: 500px;
   padding: 15px;
   margin: 0 auto;
 }

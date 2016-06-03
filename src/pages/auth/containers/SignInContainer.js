@@ -48,31 +48,37 @@ class SignInContainer extends Component {
 
         <div className="container">
 
+          <div className={styles.signin}>
           
-          <h2 className="form-signin-heading">Please sign in</h2>
-          <input type="text" ref="username" name="username" className="form-control" placeholder="Username" required autofocus />
-          <label for="inputPassword" className="sr-only">Password</label>
-          <input type="password" ref="password" name="password" className="form-control" placeholder="Password" required />
-          {/*<div className="checkbox">
-            <label>
-              <input type="checkbox" value="remember-me" /> Remember me
-            </label>
-          </div>*/}
-          <button className="btn btn-lg btn-primary btn-block" onClick={ () => {this.handleSignIn()} }>Sign in</button>
-         
-          <span> Test out the site? <a href="#" onClick={ (e) => {e.preventDefault(); this.handleGuest()} }> Guest Login </a> </span>
-          
-          <br/>  
+            <h2 className="form-signin-heading">Please sign in</h2>
+            <input type="text" ref="username" name="username" className="form-control" placeholder="Username" required autofocus />
+            
+            <input type="password" ref="password" name="password" className="form-control" placeholder="Password" required />
+            {/*<div className="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember me
+              </label>
+            </div>*/}
 
-          <span> Need an account ? <Link to='/signup'> Go to Sign Up </Link> </span>
+            <br />
+
+            <button className="btn btn-lg btn-primary btn-block" onClick={ () => {this.handleSignIn()} }>Sign in</button>
+          
+            <span> Test out the site? <a href="#" onClick={ (e) => {e.preventDefault(); this.handleGuest()} }> Guest Login </a> </span>
+            
+            <br/>  
+
+            <span> Need an account ? <Link to='/signup'> Go to Sign Up </Link> </span>
+
+            <br/>
+            <br/>
+
+            <button onClick={ () => {this.handleTest()} }> TEST end point: logs out session </button>
+            <Link to='take/123'> Test link to single course </Link>
+          </div>
+
 
         </div>
-
-        <br/>
-        <br/>
-
-        <button onClick={ () => {this.handleTest()} }> TEST end point: logs out session </button>
-        <Link to='take/123'> Test link to single course </Link>
 
 
         {/*<Link to='/course/take/123'> Go to a course </Link> <br/>

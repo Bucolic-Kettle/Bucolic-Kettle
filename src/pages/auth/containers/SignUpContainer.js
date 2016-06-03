@@ -32,24 +32,27 @@ class SignUpContainer extends Component {
 
         <div className="container text-center">
 
-          
-          <h2 className="form-signin-heading">Create an Account</h2>
-          <input type="text" ref="username" name="username" className="form-control" placeholder="Username" required autofocus />
-          <label for="inputPassword" className="sr-only">Password</label>
-          <input type="password" ref="password" name="password" className="form-control" placeholder="Password" required />
-          {/*<div className="checkbox">
-            <label>
-              <input type="checkbox" value="remember-me" /> Remember me
-            </label>
-          </div>*/}
-          <button className="btn btn-lg btn-primary btn-block" onClick={ () => {this.handleSignUp()} }>Sign up</button>
-            
-          <br/>
+          <div className={styles.signin}>            
+            <h2 className="form-signin-heading">Create an Account</h2>
+            <input type="text" ref="username" name="username" className="form-control" placeholder="Username" required autofocus />
+            <label for="inputPassword" className="sr-only">Password</label>
+            <input type="password" ref="password" name="password" className="form-control" placeholder="Password" required />
+            {/*<div className="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember me
+              </label>
+            </div>*/}
 
-          <span> Have an account? <Link to='/'> Go to Sign In </Link> </span>
+            <br />
 
+            <button className="btn btn-lg btn-primary btn-block" onClick={ () => {this.handleSignUp()} }>Sign up</button>
+              
+            <br/>
+
+            <span> Have an account? <Link to='/'> Go to Sign In </Link> </span>
+
+          </div>
         </div>
-
 
       </div>
 

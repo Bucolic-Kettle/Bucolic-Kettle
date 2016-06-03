@@ -3,6 +3,7 @@ import { push } from 'react-router-redux'
 //http://stackoverflow.com/questions/32612418/transition-to-another-route-on-successful-async-redux-action
 
 const defaultState = {
+  login:true,
   auth: false,
   username: null
 };
@@ -13,16 +14,19 @@ export default function reducer(state = defaultState, action) {
     case 'LOG_IN':
       if(action.data) {
 
-        return {...state, ...action.data}
+        return {...state, ...action.data, login:false}
         
       } else {
         return state;
       }
 
     case 'GUEST':
+    console.log(action)
       return {...state, ...action.data}
 
-
+    case 'SIGN_OUT':
+    console.log(action.data)
+      return {...state, login: action.login, auth: action.auth, username: action.username}
 
     default: return state;
   }
@@ -53,11 +57,13 @@ export function handleUser(endpoint, username, password) {
   };
 
   return (dispatch) => {
-    axios(config).then(({data}) => {
+    axios(config)
+    .then(({data}) => {
       console.log(data)
       return dispatch({type:'LOG_IN', data})
     })
     .then((action) => {
+      console.log(action)
         if (action.type === 'LOG_IN') {
             dispatch(push('/course/create'));
         }
@@ -69,8 +75,16 @@ export function handleUser(endpoint, username, password) {
 export function handleGuest() {
 
   return (dispatch) => {
-    axios.get('http://localhost:8000/guest').then(({data}) => {
+    axios.get('http://localhost:8000/guest')
+    .then(({data}) => {
+      console.log(data)
       dispatch({type:'GUEST', data})
+    })
+    .then((action) => { 
+      console.log(action)
+        // if (action.type === 'GUEST') {
+            dispatch(push('/course/create'));
+        // }
     });
   }
 
@@ -86,9 +100,11 @@ export function handleTest() {
 
 }
 
-export function handleSignOUT(auth) {
+export function handleSignOut() {
   return {
     type: 'SIGN_OUT',
-    auth
+    login: true,
+    username: null,
+    auth:false
   }
 }
