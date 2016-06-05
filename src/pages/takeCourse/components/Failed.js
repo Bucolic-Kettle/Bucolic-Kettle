@@ -1,13 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import styles from './styles.module.css';
+
 
 
 const Description = (props) => {
   return (
 
-    <div>
-      {props.courseDescription}
-    </div>    
+    <div className={styles.main}>
+      <p>Im Sorry, you did not pass. Feel free to review the course and take the quiz again. Best of luck</p>
+    </div>     
     )
   
 }

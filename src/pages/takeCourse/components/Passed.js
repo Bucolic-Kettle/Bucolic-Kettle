@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import styles from './styles.module.css';
 
 
-const VideoPlayer = (props) => {
+
+const Description = (props) => {
   return (
 
-    <div className="video-player">
-      <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={props.courseUrl} allowFullScreen></iframe>
-      </div>
+    <div className={styles.main}>
+      <p>Congratulations ! You Passed. {props.courseName} has been added to your list of completed courses </p>
     </div>    
     )
   
@@ -31,4 +31,4 @@ function mapStateToProps(state) {
 //   return bindActionCreators(aa, dispatch);
 // }
 
-export default connect(mapStateToProps)(VideoPlayer);
+export default connect(mapStateToProps)(Description);

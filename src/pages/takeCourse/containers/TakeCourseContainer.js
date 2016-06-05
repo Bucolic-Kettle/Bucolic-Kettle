@@ -7,6 +7,8 @@ import Sidebar from '../components/Sidebar.js';
 import VideoPlayer from '../components/VideoPlayer.js';
 import Description from '../components/Description.js';
 import Quiz from '../components/Quiz.js';
+import Failed from '../components/Failed.js';
+import Passed from '../components/Passed.js';
 
 
 ///for testing before api integration
@@ -24,13 +26,29 @@ class TakeCourseContainer extends Component {
 
     let content;
 
-    if (this.props.display === 'Quiz') {
-      content = <Quiz />
-    } else if(this.props.display === 'VideoPlayer') {
-      content = <VideoPlayer />
-    } else {
-      content = <Description />
-    }
+    switch(this.props.display) {
+      case 'Quiz':
+        content = <Quiz />
+        break;
+
+      case 'VideoPlayer':
+        content = <VideoPlayer />
+        break;
+
+      case 'Passed':
+      console.log('passed')
+        content = <Passed />
+        break;
+
+      case 'Failed':
+      console.log('failed')
+        content = <Failed />
+        break;
+
+      default: 
+        content = <Description />        
+      }
+
 
     return (
 

@@ -1,16 +1,19 @@
 import React, { PropTypes } from 'react';
 import Header from 'components/Header/Header';
 import styles from './styles.module.css';
+import { connect } from 'react-redux'
 
-function LandingLayout({ children }) {
+
+function LandingLayout(props) {
+  console.log(props)
   return (
     <div className="container-fluid">
       <Header />
       <div className={`${styles.course} page-header`}> 
-        <h1>COURSE NAME ! &gt;&lt;&gt;</h1>
+        <h1>{props.courseName} ! &gt;&lt;&gt;</h1>
       </div>
       <div className="row-fluid">
-        {children}
+        {props.children}
       </div>
     </div>
   );
@@ -20,4 +23,12 @@ LandingLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export default LandingLayout;
+function mapStateToProps(state) {
+
+  return {
+    courseName: state.takeCourse.courseName, 
+  }
+
+}
+
+export default connect(mapStateToProps)(LandingLayout);
