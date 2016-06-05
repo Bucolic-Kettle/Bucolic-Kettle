@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 
 function LandingLayout(props) {
-  console.log(props)
+
   return (
     <div className="container-fluid">
       <Header />

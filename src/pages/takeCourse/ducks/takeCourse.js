@@ -48,9 +48,14 @@ export default function reducer(state = defaultState, action) {
 
       return allCorrect ? {...state, display: 'Passed'} : {...state, display: 'Failed'} 
 
+    case 'SET_COURSE':
+      return {...state, ...action} // this will add type property which is unwanted, fix later
+
     default: 
       return state;    
     }
+    
+
   }
 
 
@@ -90,6 +95,14 @@ export function handleSubmit(question, selection) {
     type: 'SUBMIT_QUIZ',
     question,
     selection
+  }
+}
+
+export function setCourse(coursePayload) {
+  // console.log('hitit', ...coursePayload, coursePayload)
+  return {
+    type: 'SET_COURSE',
+    ...coursePayload
   }
 }
 
