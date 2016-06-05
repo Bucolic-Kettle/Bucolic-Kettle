@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 // Add dumy data from sample.js
-import sample from '../../../../sample';
+// import sample from '../../../../sample';
 
 const Results = (props) => {
 
   return (
     <div>
       <ul className="list-group">
-        {sample.map(course =>
+        {props.results.map(course =>
           <li className="list-group-item">
             <div>
               <h3>Name: {course.title}</h3>
@@ -25,10 +25,7 @@ const Results = (props) => {
 function mapStateToProps(state) {
 
   return {
-    courseName: state.takeCourse.courseName,
-    courseDescription: state.takeCourse.courseDescription,
-    courseUrl: state.takeCourse.courseUrl,
-    courseQuestions: state.takeCourse.courseQuestions
+    results: state.search.results
   }
 
 }
