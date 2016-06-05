@@ -28,6 +28,9 @@ export default function reducer(state = defaultState, action) {
     console.log(action.data)
       return {...state, login: action.login, auth: action.auth, username: action.username}
 
+    case 'SESSION_CHECK':
+      console.log('detector')
+
     default: return state;
   }
 }
@@ -75,7 +78,7 @@ export function handleUser(endpoint, username, password) {
 export function handleGuest() {
 
   return (dispatch) => {
-    axios.get('http://localhost:8000/guest')
+    axios.get('http://localhost:8000/guest', {withCredentials: true})
     .then(({data}) => {
       console.log(data)
       dispatch({type:'GUEST', data})
@@ -100,11 +103,41 @@ export function handleTest() {
 
 }
 
-export function handleSignOut() {
-  return {
-    type: 'SIGN_OUT',
-    login: true,
-    username: null,
-    auth:false
+export function checkSession() {
+  return (dispatch) => {
+    axios.get('http://localhost:8000/checkSession', {withCredentials: true}).then(({data}) => {
+      console.log(data)
+      if (data) {
+        dispatch({type:'LOG_IN', data})
+      }
+   
+    });
   }
+};
+
+export function handleSignOut() {
+
+  return (dispatch) => {
+    axios.get('http://localhost:8000/logout', {withCredentials: true}).then( () => {
+
+        dispatch({    
+          type: 'SIGN_OUT',
+          login: true,
+          username: null,
+          auth:false
+        })
+   
+    });
+  }
+
+
 }
+
+// export function handleSignOut() {
+//   return {
+//     type: 'SIGN_OUT',
+//     login: true,
+//     username: null,
+//     auth:false
+//   }
+// }
