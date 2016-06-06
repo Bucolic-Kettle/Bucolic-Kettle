@@ -19,10 +19,10 @@ export default function reducer(state = defaultState, action) {
           return val;
         }
 
-      });       
-      
+      });
+
       return {...state, results: filtered}
-      //console.log("FILERED: ", ret)
+      //console.log("FILTERED: ", ret)
 
     case 'SHOW_ALL':
       return {...state, results: state.all}
@@ -36,7 +36,7 @@ export default function reducer(state = defaultState, action) {
 /* Action Creators */
 export function search(dispatch, query) {
 console.log('dispatch: ', dispatch)
-  dispatch(push('/search/results')); // this will happen in return from asyn axios call 
+  dispatch(push('/search/results')); // this will happen in return from asyn axios call
 
   return {
     type: 'SEARCH',
@@ -46,7 +46,7 @@ console.log('dispatch: ', dispatch)
 
 export function showAll(dispatch, query) {
 
-  dispatch(push('/search/results')); // this will happen in return from asyn axios call 
+  dispatch(push('/search/results')); // this will happen in return from asyn axios call
 
   return {
     type: 'SHOW_ALL',
