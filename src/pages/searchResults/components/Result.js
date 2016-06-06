@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { setCourse } from '../../takeCourse/ducks/takeCourse'
 import { bindActionCreators } from 'redux'
-// Add dumy data from sample.js
-// import sample from '../../../../sample';
+
 
 const Result = (props) => {
 
@@ -15,7 +14,7 @@ const Result = (props) => {
     // answers are in props, this is a problem because they show up in react dev tools
     // resolve later (put in store?)
     // might not need to do all this, but object does have more than state needs?
-    var coursePayload = { 
+    var coursePayload = {
       courseName: props.course.title,
       courseDescription: props.course.description,
       courseUrl: props.course.url,
@@ -24,7 +23,7 @@ const Result = (props) => {
     }
 
     props.setCourse(coursePayload);
-    
+
   }
 
 
@@ -46,10 +45,10 @@ function mapStateToProps(state) {
   return {
     results: state.search.results,
     courseName: state.takeCourse.courseName,
-    courseDescription:state.takeCourse.courseDescription, 
+    courseDescription:state.takeCourse.courseDescription,
     courseUrl: state.takeCourse.courseUrl,
     courseQuestions: state.takeCourse.courseQuestions,
-    courseAnswers:state.takeCourse.courseAnswers 
+    courseAnswers:state.takeCourse.courseAnswers
   }
 
 }

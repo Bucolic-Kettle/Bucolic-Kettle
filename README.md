@@ -1,6 +1,6 @@
-# Project Name
+# Fish Academy
 
-> Pithy project description
+> A crowdsourced learning and teaching platform.
 
 ## Team
 
@@ -20,31 +20,29 @@
 
 ## Usage
 
-> Some usage instructions
+> `npm start` in root directory to start web server. Ensure that backend server and postgresql server are already running. See [Bucolic-Kettle-Backend](https://github.com/Bucolic-Kettle/Bucolic-Kettle-Backend).
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node
+- Express
+- Postgresql
+- React/Redux
 
 ## Development
+In development.
 
 ### Installing Dependencies
 
 From within the root directory:
 
-```sh
-sudo npm install -g bower
+```
 npm install
-bower install
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://github.com/Bucolic-Kettle/Bucolic-Kettle/issues)
 
 
 ## Contributing
