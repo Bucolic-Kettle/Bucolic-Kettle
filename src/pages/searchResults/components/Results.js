@@ -1,21 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
+import Result from './Result'
 // Add dumy data from sample.js
-import sample from '../../../../sample';
+// import sample from '../../../../sample';
 
 const Results = (props) => {
 
   return (
     <div>
       <ul className="list-group">
-        {sample.map(course =>
-          <li className="list-group-item">
-            <div>
-              <h3>Name: {course.title}</h3>
-              <p>ID: {course.id}</p>
-              <p>Description: {course.description}</p>
-            </div>
-          </li>
+        {props.results.map(course =>
+          <Result course={course} />
         )}
       </ul>
     </div>
@@ -25,10 +21,12 @@ const Results = (props) => {
 function mapStateToProps(state) {
 
   return {
+    results: state.search.results,
     courseName: state.takeCourse.courseName,
-    courseDescription: state.takeCourse.courseDescription,
+    courseDescription:state.takeCourse.courseDescription, 
     courseUrl: state.takeCourse.courseUrl,
-    courseQuestions: state.takeCourse.courseQuestions
+    courseQuestions: state.takeCourse.courseQuestions,
+    courseAnswers:state.takeCourse.courseAnswers 
   }
 
 }
@@ -37,6 +35,6 @@ function mapStateToProps(state) {
 //   var aa = {handleSignIn: handleSignIn};
 //   console.log('action creator', aa)
 //   return bindActionCreators(aa, dispatch);
-// }
+// }Link to={`/take/${course.id}`} 
 
 export default connect(mapStateToProps)(Results);
